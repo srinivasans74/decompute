@@ -255,7 +255,6 @@ def evaluate_test_set(trainer, tokenizer, test_dataset, device):
         sol2 = sample["sol2"]
         label = sample["label"]  # 0 for sol1, 1 for sol2
 
-        # Construct the prompt to guide the model to select the better solution
         prompt = (
             f"Goal: {goal}\n"
             f"Solution 1: {sol1}\n"
@@ -268,7 +267,7 @@ def evaluate_test_set(trainer, tokenizer, test_dataset, device):
             prompt,
             return_tensors="pt",
             truncation=True,
-            max_length=256,  # Adjust based on your data
+            max_length=256,  # Adjust based on  data
         )
         input_ids = encoding["input_ids"].to(device)
         attention_mask = encoding["attention_mask"].to(device)
