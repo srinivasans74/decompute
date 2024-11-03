@@ -51,7 +51,7 @@ def read_memory_utilization():
         try:
             with open("densenetsmi.txt", "r") as file:
                 lines = file.readlines()
-                if len(lines) > 1:  # Skip the header
+                if len(lines) > 1:  
                     last_line = lines[-1].strip()
                     fields = last_line.split()
                     if len(fields) > 4 and fields[4].isdigit():  # Check if mem utilization is present
@@ -249,7 +249,7 @@ def evaluate_test_set(trainer, tokenizer, test_dataset, device):
     predictions, references = [], []
 
     for idx, sample in enumerate(test_dataset):
-        print(f"****************** Input {idx+1} ***************************")
+        #print(f"****************** Input {idx+1} ***************************")
         goal = sample["goal"]
         sol1 = sample["sol1"]
         sol2 = sample["sol2"]
@@ -289,9 +289,9 @@ def evaluate_test_set(trainer, tokenizer, test_dataset, device):
             )
 
         generated_text = tokenizer.decode(outputs[0], skip_special_tokens=True)
-        print(f"****************** Output {idx+1} ***************************")
-        print(generated_text)
-        print("\n")
+        #print(f"****************** Output {idx+1} ***************************")
+        #print(generated_text)
+        #print("\n")
 
         # Extract the solution number from the generated text
         if "solution 1" in generated_text.lower():
