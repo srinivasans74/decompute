@@ -71,17 +71,19 @@ The model is sourced from Hugging Face. Update the model_path in both scripts if
 
 model_path = "path/to/llama-3.1b"  # Update to your path if needed
 
-Key Differences Between Baseline and Modified Versions
 
-Feature	baseline.py	modified.py
-Precision	Standard (full precision)	Mixed-precision with autocast and GradScaler
-Checkpoint Management	Saves all checkpoints	Saves only the latest checkpoint (save_total_limit=1)
-Model Selection	Final model after training	Loads best-performing model based on accuracy (load_best_model_at_end=True)
-Gradient Accumulation	Yes (steps=4)	Yes (steps=4)
-Gradient Checkpointing	Enabled	Enabled
-Pin Memory	No	Yes (pin_memory=True)
-GPU Memory Monitoring	Basic monitoring with nvidia-smi	Enhanced monitoring and logging
-Evaluation	Standard accuracy calculation	Structured prompting and parsing for improved evaluation
+## Key Differences Between Baseline and Modified Versions
+
+| Feature                   | `baseline.py`                              | `modified.py`                                                            |
+|---------------------------|--------------------------------------------|---------------------------------------------------------------------------|
+| **Precision**             | Standard (full precision)                  | Mixed-precision with `autocast` and `GradScaler`                         |
+| **Checkpoint Management** | Saves all checkpoints                      | Saves only the latest checkpoint (`save_total_limit=1`)                   |
+| **Model Selection**       | Final model after training                 | Loads best-performing model based on accuracy (`load_best_model_at_end=True`) |
+| **Gradient Accumulation** | Yes (steps=4)                              | Yes (steps=4)                                                             |
+| **Gradient Checkpointing**| Enabled                                    | Enabled                                                                  |
+| **Pin Memory**            | No                                         | Yes (`pin_memory=True`)                                                  |
+| **GPU Memory Monitoring** | Basic monitoring with `nvidia-smi`         | Enhanced monitoring and logging                                          |
+| **Evaluation**            | Standard accuracy calculation              | Structured prompting and parsing for improved evaluation                 |
 
 Additional Information
 
