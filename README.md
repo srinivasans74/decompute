@@ -1,6 +1,5 @@
-README
+**README**
 
-The project focuses on fine-tuning Large Language Models (LLMs) on the PIQA dataset, focused on practical problem-solving tasks. This repository provides two versions of the training pipeline—Baseline and Modified—with different levels of optimization to measure and enhance performance and memory efficiency.
 
 Overview
 
@@ -34,9 +33,7 @@ Baseline Version
 
 The Baseline version provides a standard approach to model training.
 
-	1.	Run baseline.py:
-
-python baseline.py
+	1.	Run baseline.py: python3 baseline.py
 
 This script includes:
 	•	Standard training configurations for the LLAMA-3.1B model.
@@ -47,9 +44,7 @@ Modified Version
 
 The Modified version includes several enhancements to optimize training and memory efficiency.
 
-	1.	Run modified.py:
-
-python modified.py
+	1.	Run modified.py: python3 modified.py
 
 Modifications in modified.py:
 	•	Mixed-Precision Training: Uses autocast and GradScaler from torch.cuda.amp for mixed-precision, reducing memory usage and improving speed.
